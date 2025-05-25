@@ -28,20 +28,20 @@ export const createApiRoutes = (app, jsonResponse, jsonError) => {
     });
   };
 
-  ["/api", "/api/"].forEach((route) => {
-    app.get(route, (req, res) =>
-      homeInfoController
-        .getHomeInfo(req, res)
-        .then((data) => jsonResponse(res, data))
-        .catch((err) => jsonError(res))
-    );
-  });
+  // ["/api", "/api/"].forEach((route) => {
+  //   app.get(route, (req, res) =>
+  //     homeInfoController
+  //       .getHomeInfo(req, res)
+  //       .then((data) => jsonResponse(res, data))
+  //       .catch((err) => jsonError(res))
+  //   );
+  // });
 
-  routeTypes.forEach((routeType) =>
-    createRoute(`/api/${routeType}`, (req, res) =>
-      categoryController.getCategory(req, res, routeType)
-    )
-  );
+  // routeTypes.forEach((routeType) =>
+  //   createRoute(`/api/${routeType}`, (req, res) =>
+  //     categoryController.getCategory(req, res, routeType)
+  //   )
+  // );
 
   createRoute("/api/top-ten", topTenController.getTopTen);
   createRoute("/api/info", animeInfoController.getAnimeInfo);
